@@ -1,0 +1,23 @@
+import stockImage from "/src/assets/stockImage.jpg";
+import "./BoardCard.css";
+
+const BoardCard = (props) => {
+  // edit with props for furture additions
+  return (
+    <div className="board">
+      <img className="boardPic" src={stockImage} alt="title" />
+      <h2>{props.title}</h2>
+      <h3>{props.category}</h3>
+      <div className="options">
+        <button type="button" id="changeBoard">
+          View Board
+        </button>
+        <button type="button" id="changeBoard">
+          Delete Board
+        </button>
+      </div>
+    </div>
+  );
+};
+
+export default BoardCard;

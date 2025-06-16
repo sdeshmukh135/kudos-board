@@ -1,11 +1,22 @@
-import './BoardList.css'
+import "./BoardList.css";
+import BoardCard from "./BoardCard.jsx";
 
-const BoardList = () => {
-    return (
-        <main>
-            Boards go here
-        </main>
-    )
-}
+const BoardList = (props) => {
+  return (
+    <main>
+        {
+      props.boardData.map(object => {
+                return (
+                    <>
+                        <BoardCard title={object.title} category={object.category}/>
+                    </>
+                    
+                    
+                )
+             })
+            }
+    </main>
+  );
+};
 
-export default BoardList
+export default BoardList;

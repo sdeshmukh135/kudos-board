@@ -1,8 +1,4 @@
-.HomePage {
-  font-family: "Courier New", Courier, monospace;
-}
-
-#createBoard {
+#submitFilter {
   padding: 10px;
   border-radius: 4px;
   background-color: #56261b;

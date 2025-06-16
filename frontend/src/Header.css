@@ -1,4 +1,9 @@
 header {
-    border:1px solid grey;
-    padding:20px
+  color: #56261b;
+  padding: 10px;
+}
+
+.Kudos-Image {
+  max-height: 7%;
+  max-width: 7%;
 }

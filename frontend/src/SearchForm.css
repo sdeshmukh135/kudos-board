@@ -1,0 +1,28 @@
+.searchInput {
+  background-color: #fafbfc;
+  border: 1px solid #1b1f2326;
+  border-radius: 4px;
+  box-shadow:
+    0 1px 0 #1b1f230a,
+    inset 0 1px 0 #ffffff40;
+  box-sizing: border-box;
+  color: #24292e;
+  flex: 1 1;
+  font-size: 16px;
+  height: 40px;
+  padding: 10px;
+}
+
+#SearchBar {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  margin: 20px auto;
+  max-width: 600px;
+}
+
+#submitChange {
+  padding: 10px;
+  border-radius: 4px;
+  background-color: #56261b;
+}
