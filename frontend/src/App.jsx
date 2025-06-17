@@ -1,13 +1,17 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import HomePage from "./HomePage.jsx";
+import BoardPage from "./BoardPage.jsx";
 
 function App() {
   return (
     <div className="App">
-      <HomePage />
+      <Router>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/board/:title" element={<BoardPage />} />
+        </Routes>
+      </Router>
     </div>
   );
 }

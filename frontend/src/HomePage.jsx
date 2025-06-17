@@ -6,7 +6,7 @@ import FilterOptions from "./FilterOptions.jsx";
 import { useState } from "react";
 import "./HomePage.css";
 import CreateModal from "./CreateModal.jsx";
-import boards from './data/data.js'
+import boards from "./data/data.js";
 
 const HomePage = () => {
   const [boardData, setBoardData] = useState(boards); // will update everytime a board is added, deleted, etc.-- intialized to the sample data
@@ -16,7 +16,6 @@ const HomePage = () => {
     setIsCreate(true);
   };
 
-
   return (
     <div className="HomePage">
       <Header />
@@ -25,7 +24,13 @@ const HomePage = () => {
       <button type="button" id="createBoard" onClick={openModal}>
         Create a New Board
       </button>
-      {isCreate && <CreateModal setIsCreate={setIsCreate} boardData = {boardData} setBoardData={setBoardData} />} 
+      {isCreate && (
+        <CreateModal
+          setIsCreate={setIsCreate}
+          boardData={boardData}
+          setBoardData={setBoardData}
+        />
+      )}
       {boardData && <BoardList boardData={boardData} />}
       <Footer />
     </div>

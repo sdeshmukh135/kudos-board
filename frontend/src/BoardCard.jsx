@@ -1,5 +1,6 @@
 import stockImage from "/src/assets/stockImage.jpg";
 import "./BoardCard.css";
+import { Link } from "react-router-dom";
 
 const BoardCard = (props) => {
   // edit with props for furture additions
@@ -9,9 +10,11 @@ const BoardCard = (props) => {
       <h2>{props.title}</h2>
       <h3>{props.category}</h3>
       <div className="options">
-        <button type="button" id="changeBoard">
-          View Board
-        </button>
+        <Link to={`/board/${encodeURIComponent(props.title)}`}>
+          <button type="button" id="changeBoard">
+            View Board
+          </button>
+        </Link>
         <button type="button" id="changeBoard">
           Delete Board
         </button>

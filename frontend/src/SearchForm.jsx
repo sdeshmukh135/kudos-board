@@ -14,10 +14,10 @@ const SearchForm = () => {
     //props.onSearchQuery('');
   };
 
-
   return (
     <form id="SearchBar" onSubmit={handleSearchChange}>
-      <input className="searchInput"
+      <input
+        className="searchInput"
         type="text"
         value={searchInput}
         onChange={(e) => setSearchInput(e.target.value)}

@@ -4,17 +4,13 @@ import BoardCard from "./BoardCard.jsx";
 const BoardList = (props) => {
   return (
     <main>
-        {
-      props.boardData.map(object => {
-                return (
-                    <>
-                        <BoardCard title={object.title} category={object.category}/>
-                    </>
-                    
-                    
-                )
-             })
-            }
+      {props.boardData.map((object) => {
+        return (
+          <>
+            <BoardCard title={object.title} category={object.category} />
+          </>
+        );
+      })}
     </main>
   );
 };

@@ -1,5 +1,5 @@
-.create-container {
-  display: flex;
+.card-modal {
+    display: flex;
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
   left: 0;
@@ -10,27 +10,27 @@
   background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 
-.create-content {
-  background-color: #56261b;
-  margin: 15% auto; /* 15% from the top and centered */
+.create-card-container {
+    background-color: #56261b;
+  margin: 5% auto; /* 15% from the top and centered */
   padding: 10px;
   border: 1px solid #fdebe9;
   border-radius: 5%;
-  max-width: 70%;
+  max-width: 80%;
   color: #fdebe9;
   font-family: "Courier New", Courier, monospace;
-  max-height: 50%;
+  max-height: 70%;
   overflow-y: auto;
 }
 
-#createBar {
-  display: flex;
+#createCardBar {
+    display: flex;
   flex-direction: column;
   padding: 15px;
 }
 
-.createInput {
-  background-color: #fafbfc;
+.createCardInput {
+    background-color: #fafbfc;
   border: 1px solid #1b1f2326;
   border-radius: 4px;
   box-shadow:
@@ -43,12 +43,6 @@
   height: 40px;
   padding: 10px;
   margin: 10px;
+  width:400px;
 }
 
-#submitBoard {
-  padding: 10px;
-  border-radius: 4px;
-  background-color: #fdebe9;
-  color: #56261b;
-  margin: 8px;
-}

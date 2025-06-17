@@ -11,20 +11,18 @@ const createModal = (props) => {
     event.preventDefault();
     console.log(event);
     const newBoard = {
-        "title":event.target.elements['title'].value,
-        "category":selectedCategory
-    }
+      title: event.target.elements["title"].value,
+      category: selectedCategory,
+    };
 
-    const newBoardData =  [...props.boardData, newBoard];
+    const newBoardData = [...props.boardData, newBoard];
     props.setBoardData(newBoardData);
-
   };
 
   const handleClear = () => {
     setTitleInput("");
     setAuthorInput("");
     setSelectedCategory("");
-    
   };
 
   const closeModal = () => {
@@ -33,10 +31,13 @@ const createModal = (props) => {
 
   return (
     <div className="create-container" onClick={closeModal}>
-      <div className="create-content" onClick={element => element.stopPropagation()}>
+      <div
+        className="create-content"
+        onClick={(element) => element.stopPropagation()}
+      >
         <form id="createBar" onSubmit={handleButtonChange}>
           <label htmlFor="title">Title: </label>
-          <input 
+          <input
             className="createInput"
             type="text"
             value={titleInput}
@@ -46,7 +47,12 @@ const createModal = (props) => {
             required
           />
           <label htmlFor="category">Category: </label>
-          <select value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)} className="createInput" required>
+          <select
+            value={selectedCategory}
+            onChange={(e) => setSelectedCategory(e.target.value)}
+            className="createInput"
+            required
+          >
             <option value>Select a Category:</option>
             <option value="Celebration">Celebration</option>
             <option value="Recent">Recent</option>
@@ -54,15 +60,15 @@ const createModal = (props) => {
             <option value="Inspiration">Inspiration</option>
           </select>
           <label htmlFor="author">Author: </label>
-          <input className="createInput"
+          <input
+            className="createInput"
             type="text"
             value={authorInput}
             onChange={(e) => setAuthorInput(e.target.value)}
             name="author"
             placeholder="Author"
-            // required, CHANGE because author and category ARE REQUIRED
           />
-          <button type="submit" id="submitBoard" >
+          <button type="submit" id="submitBoard">
             Create Board
           </button>
         </form>
