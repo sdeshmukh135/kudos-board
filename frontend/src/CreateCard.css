@@ -1,5 +1,5 @@
 .card-modal {
-    display: flex;
+  display: flex;
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
   left: 0;
@@ -11,7 +11,7 @@
 }
 
 .create-card-container {
-    background-color: #56261b;
+  background-color: #56261b;
   margin: 5% auto; /* 15% from the top and centered */
   padding: 10px;
   border: 1px solid #fdebe9;
@@ -24,13 +24,13 @@
 }
 
 #createCardBar {
-    display: flex;
+  display: flex;
   flex-direction: column;
   padding: 15px;
 }
 
 .createCardInput {
-    background-color: #fafbfc;
+  background-color: #fafbfc;
   border: 1px solid #1b1f2326;
   border-radius: 4px;
   box-shadow:
@@ -43,6 +43,5 @@
   height: 40px;
   padding: 10px;
   margin: 10px;
-  width:400px;
+  width: 400px;
 }
-

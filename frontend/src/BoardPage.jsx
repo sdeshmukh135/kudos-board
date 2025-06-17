@@ -3,7 +3,7 @@ import "./BoardPage.css";
 import Header from "./Header.jsx";
 import Footer from "./Footer.jsx";
 import { useParams } from "react-router-dom"; // to access the parameters from the link
-import CreateCard from './CreateCard.jsx'
+import CreateCard from "./CreateCard.jsx";
 
 const BoardPage = () => {
   const { title } = useParams();
@@ -20,10 +20,7 @@ const BoardPage = () => {
       <button type="button" id="createBoard" onClick={openModal}>
         Create a New Board
       </button>
-      {isCreate && (
-        <CreateCard setIsCreate={setIsCreate}
-        />
-      )}
+      {isCreate && <CreateCard setIsCreate={setIsCreate} />}
       <Footer />
     </div>
   );

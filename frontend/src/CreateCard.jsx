@@ -1,5 +1,5 @@
-import {useState, useEffect} from 'react'
-import './CreateCard.css'
+import { useState, useEffect } from "react";
+import "./CreateCard.css";
 
 const CreateCard = (props) => {
   const [titleInput, setTitleInput] = useState("");
@@ -8,22 +8,19 @@ const CreateCard = (props) => {
   const [GIFInput, setGIFInput] = useState("");
   const [ownerInput, setOwnerInput] = useState("");
 
-  const handleButtonChange = () => {
-
-  }
+  const handleButtonChange = () => {};
 
   const searchForGIF = () => {
     // API
-  }
+  };
 
   const getGIF = () => {
     // API
-  }
-
-   const closeModal = () => {
-    props.setIsCreate(false);
   };
 
+  const closeModal = () => {
+    props.setIsCreate(false);
+  };
 
   return (
     <div className="card-modal" onClick={closeModal}>
@@ -52,32 +49,31 @@ const CreateCard = (props) => {
             required
           />
 
-            <input
-                className="createCardInput"
-                type="text"
-                value={searchGIFInput}
-                onChange={(e) => setSearchGIFInput(e.target.value)}
-                name="GIFSearch"
-                placeholder="Search GIFs..."
+          <input
+            className="createCardInput"
+            type="text"
+            value={searchGIFInput}
+            onChange={(e) => setSearchGIFInput(e.target.value)}
+            name="GIFSearch"
+            placeholder="Search GIFs..."
           />
-            <button type="search" id="submitBoard"  onClick={searchForGIF}>
-                Search
-            </button>
+          <button type="search" id="submitBoard" onClick={searchForGIF}>
+            Search
+          </button>
 
-
-            <input
-                className="createCardInput"
-                type="text"
-                value={GIFInput}
-                onChange={(e) => setGIFInput(e.target.value)}
-                name="getGIF"
-                placeholder="Enter GIF URL"
-                required
+          <input
+            className="createCardInput"
+            type="text"
+            value={GIFInput}
+            onChange={(e) => setGIFInput(e.target.value)}
+            name="getGIF"
+            placeholder="Enter GIF URL"
+            required
           />
-            <button type="button" id="submitBoard"  onClick={getGIF}>
-                Copy GIF URL
-            </button>
-      
+          <button type="button" id="submitBoard" onClick={getGIF}>
+            Copy GIF URL
+          </button>
+
           <input
             className="createCardInput"
             type="text"

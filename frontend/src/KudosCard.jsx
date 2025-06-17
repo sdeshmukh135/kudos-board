@@ -1,3 +1,1 @@
-const KudosCard = () => {
-    
-}
+const KudosCard = () => {};
