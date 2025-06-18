@@ -7,16 +7,30 @@ const CreateCard = (props) => {
   const [searchGIFInput, setSearchGIFInput] = useState("");
   const [GIFInput, setGIFInput] = useState("");
   const [ownerInput, setOwnerInput] = useState("");
-  
+  const [gifData, setGifData] = useState(null); // to show the gif options
+  const [showGIF, setShowGIF] = useState(false);
 
   const handleButtonChange = () => {};
 
-  const searchForGIF = () => {
+  //   const isShowGIF = () => {
+  //     setShowGIF(true);
+  //   }
+
+  const searchForGIF = async () => {
     // API
+    const apiKey = import.meta.env.VITE_APP_API_KEY;
+    const response = await fetch(
+      `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${searchGIFInput}&limit=6`,
+    );
+    const data = await response.json();
+
+    console.log(data);
+    setGifData(data);
+    setShowGIF(true);
   };
 
   const getGIF = () => {
-    // API
+    // get url link
   };
 
   const closeModal = () => {
@@ -58,9 +72,23 @@ const CreateCard = (props) => {
             name="GIFSearch"
             placeholder="Search GIFs..."
           />
-          <button type="search" id="submitBoard" onClick={searchForGIF}>
+          <button type="button" id="submitBoard" onClick={searchForGIF}>
             Search
           </button>
+
+          <div className="gifoptions">
+            {showGIF &&
+              gifData.data.map((object) => {
+                return (
+                  <div className="gif">
+                    <img
+                      src={object.images.fixed_height_small.url}
+                      alt={object.alt_text}
+                    />
+                  </div>
+                );
+              })}
+          </div>
 
           <input
             className="createCardInput"
@@ -69,7 +97,6 @@ const CreateCard = (props) => {
             onChange={(e) => setGIFInput(e.target.value)}
             name="getGIF"
             placeholder="Enter GIF URL"
-            required
           />
           <button type="button" id="submitBoard" onClick={getGIF}>
             Copy GIF URL
@@ -83,7 +110,7 @@ const CreateCard = (props) => {
             name="owner"
             placeholder="Enter owner (optional)"
           />
-          <button type="submit" id="submitBoard">
+          <button type="submit" id="submitBoard" onSubmit={handleButtonChange}>
             Create Card
           </button>
         </form>

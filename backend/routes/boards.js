@@ -17,11 +17,11 @@ router.get("/:boardID/cards", async (req, res) => {
   // if the route is called successfully
   const boardID = req.params.boardID;
   const boardWithCards = await prisma.board.findUnique({
-    where: {id : parseInt(boardID)},
+    where: { id: parseInt(boardID) },
     include: {
-        cards:true
-    }
-  })
+      cards: true,
+    },
+  });
   res.json(boardWithCards.cards); // return the cards of the specific board
 });
 

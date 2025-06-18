@@ -1,13 +1,13 @@
-import { useState , useEffect} from "react";
+import { useState, useEffect } from "react";
 import "./BoardPage.css";
 import Header from "./Header.jsx";
 import Footer from "./Footer.jsx";
 import { useParams } from "react-router-dom"; // to access the parameters from the link
 import CreateCard from "./CreateCard.jsx";
-import KudosList from './KudosList.jsx'
+import KudosList from "./KudosList.jsx";
 
 const BoardPage = () => {
-  const { title , id} = useParams();
+  const { title, id } = useParams();
   const [isCreate, setIsCreate] = useState(false); // but for Kudos Cards instead
   const [cardData, setCardData] = useState(null);
 
@@ -34,11 +34,11 @@ const BoardPage = () => {
         console.error("Error fetching boards:", error);
         // Display an error message or retry the request
       });
-  }
+  };
 
   useEffect(() => {
     fetchCardData();
-  }, [])
+  }, []);
 
   return (
     <div className="boardPage">

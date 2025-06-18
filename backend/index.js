@@ -1,6 +1,6 @@
 const express = require("express"); // to import the Express library
 const app = express(); // to initialize an express application
-const cors = require('cors')
+const cors = require("cors");
 const PORT = 3001; // port
 
 // start server

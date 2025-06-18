@@ -7,7 +7,11 @@ const BoardList = (props) => {
       {props.boardData.map((object) => {
         return (
           <>
-            <BoardCard id={object.id} title={object.title} category={object.category} />
+            <BoardCard
+              id={object.id}
+              title={object.title}
+              category={object.category}
+            />
           </>
         );
       })}

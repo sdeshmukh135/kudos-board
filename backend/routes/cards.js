@@ -15,14 +15,14 @@ router.get("/", async (req, res) => {
 // POST
 router.post("/", async (req, res) => {
   // add a board to the board database
-  const { title, description, gifURL, boardId} = req.body;
+  const { title, description, gifURL, boardId } = req.body;
 
   const newCard = await prisma.card.create({
     data: {
       title,
       description,
       gifURL,
-      boardId
+      boardId,
     },
   });
   const cards = await prisma.card.findMany();
@@ -34,14 +34,14 @@ router.put("/:id", async (req, res) => {
   // make modifications to an existing pet
   const id = req.params.id;
 
-  const { title, description, gifURL} = req.body;
+  const { title, description, gifURL } = req.body;
   const updatedCard = await prisma.card.update({
     where: { id: parseInt(id) },
     data: {
       title,
       description,
       gifURL,
-      boardId
+      boardId,
     },
   });
   res.json(updatedCard);

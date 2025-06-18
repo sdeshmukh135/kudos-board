@@ -36,7 +36,6 @@ const HomePage = () => {
       });
   };
 
-
   useEffect(() => {
     fetchData(); // calls an api
     console.log(boardData);
@@ -46,15 +45,16 @@ const HomePage = () => {
     <div className="HomePage">
       <Header />
       <SearchForm />
-      <FilterOptions />
+      <FilterOptions
+        data={boardData}
+        setBoardData={setBoardData}
+        fetchData={fetchData}
+      />
       <button type="button" id="createBoard" onClick={openModal}>
         Create a New Board
       </button>
       {isCreate && (
-        <CreateModal
-          setIsCreate={setIsCreate}
-          setBoardData={setBoardData}
-        />
+        <CreateModal setIsCreate={setIsCreate} setBoardData={setBoardData} />
       )}
       {boardData && <BoardList boardData={boardData} />}
       <Footer />

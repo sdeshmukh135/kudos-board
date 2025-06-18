@@ -17,23 +17,22 @@ const createModal = (props) => {
     };
 
     setNewBoard(board);
-    
   };
 
   useEffect(() => {
     if (newBoard != null) {
-        handleNewBoard();
+      handleNewBoard();
     }
-  }, [newBoard])
+  }, [newBoard]);
 
   const handleNewBoard = () => {
     fetch("http://localhost:3001/boards/", {
-        method: 'POST',
-        headers : {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
-        },
-        body: JSON.stringify(newBoard)
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(newBoard),
     })
       .then((response) => {
         if (!response.ok) {
@@ -52,7 +51,7 @@ const createModal = (props) => {
         console.error("Error fetching boards:", error);
         // Display an error message or retry the request
       });
-  }
+  };
 
   const handleClear = () => {
     setTitleInput("");
@@ -90,8 +89,7 @@ const createModal = (props) => {
           >
             <option value>Select a Category:</option>
             <option value="Celebration">Celebration</option>
-            <option value="Recent">Recent</option>
-            <option value="Thank-you">Thank you</option>
+            <option value="Thank You">Thank you</option>
             <option value="Inspiration">Inspiration</option>
           </select>
           <label htmlFor="author">Author: </label>

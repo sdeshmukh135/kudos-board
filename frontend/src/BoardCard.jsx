@@ -11,7 +11,9 @@ const BoardCard = (props) => {
       <h2>{props.title}</h2>
       <h3>{props.category}</h3>
       <div className="options">
-        <Link to={`/board/${encodeURIComponent(props.title)}/${encodeURIComponent(props.id)}`}>
+        <Link
+          to={`/board/${encodeURIComponent(props.title)}/${encodeURIComponent(props.id)}`}
+        >
           <button type="button" id="changeBoard">
             View Board
           </button>
