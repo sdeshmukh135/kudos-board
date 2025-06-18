@@ -10,6 +10,9 @@ import CreateModal from "./CreateModal.jsx";
 const HomePage = () => {
   const [boardData, setBoardData] = useState(null); // will update everytime a board is added, deleted, etc.-- intialized to the sample data
   const [isCreate, setIsCreate] = useState(false);
+  const [filteredData, setFilteredData] = useState(null); // to use if there is filtered data present
+
+  const dataToDisplay = filteredData || boardData; // to figure out what data to display
 
   const openModal = () => {
     setIsCreate(true);
@@ -47,7 +50,7 @@ const HomePage = () => {
       <SearchForm />
       <FilterOptions
         data={boardData}
-        setBoardData={setBoardData}
+        setFilteredData={setFilteredData}
         fetchData={fetchData}
       />
       <button type="button" id="createBoard" onClick={openModal}>
@@ -56,7 +59,11 @@ const HomePage = () => {
       {isCreate && (
         <CreateModal setIsCreate={setIsCreate} setBoardData={setBoardData} />
       )}
-      {boardData && <BoardList boardData={boardData} />}
+      {/* try to combine */}
+      {/* {boardData && !filteredData && <BoardList boardData={boardData} setBoardData={setBoardData}/>}  */}
+      {dataToDisplay && (
+  <BoardList boardData={dataToDisplay} setBoardData={filteredData ? setFilteredData : setBoardData} />
+)}
       <Footer />
     </div>
   );

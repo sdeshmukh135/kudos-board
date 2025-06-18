@@ -47,8 +47,14 @@ const BoardPage = () => {
       <button type="button" id="createBoard" onClick={openModal}>
         Create a New Board
       </button>
-      {isCreate && <CreateCard setIsCreate={setIsCreate} boardId={id} setCardData={setCardData} />}
-      {cardData && <KudosList cardData={cardData} />}
+      {isCreate && (
+        <CreateCard
+          setIsCreate={setIsCreate}
+          boardId={id}
+          setCardData={setCardData}
+        />
+      )}
+      {cardData && <KudosList cardData={cardData} setCardData={setCardData}/>}
       <Footer />
     </div>
   );

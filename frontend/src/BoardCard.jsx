@@ -4,7 +4,33 @@ import { Link } from "react-router-dom";
 
 const BoardCard = (props) => {
   // edit with props for furture additions
-  console.log(props.id);
+  const handleDelete = () => {
+    fetch(`http://localhost:3001/boards/${props.id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json(); // Parse JSON data from the response
+      })
+      .then((data) => {
+        // Handle successful response
+        console.log("Boards:", data);
+        // Update UI or perform other actions with the data
+        props.setBoardData(data);
+      })
+      .catch((error) => {
+        // Handle error
+        console.error("Error fetching boards:", error);
+        // Display an error message or retry the request
+      });
+  };
+
   return (
     <div className="board">
       <img className="boardPic" src={stockImage} alt="title" />
@@ -18,7 +44,7 @@ const BoardCard = (props) => {
             View Board
           </button>
         </Link>
-        <button type="button" id="changeBoard">
+        <button type="button" id="changeBoard" onClick={handleDelete}>
           Delete Board
         </button>
       </div>

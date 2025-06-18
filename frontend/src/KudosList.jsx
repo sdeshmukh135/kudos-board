@@ -8,9 +8,11 @@ const KudosList = (props) => {
         return (
           <>
             <KudosCard
+                id = {object.id}
               title={object.title}
               description={object.description}
               gifURL={object.gifURL}
+              setCardData = {props.setCardData}
             />
           </>
         );

@@ -61,7 +61,8 @@ router.delete("/:id", async (req, res) => {
     where: { id: parseInt(id) },
   });
 
-  res.json(deletedCard);
+  const cards = await prisma.card.findMany();
+  res.json(cards);
 });
 
 module.exports = router;

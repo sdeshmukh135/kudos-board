@@ -13,24 +13,23 @@ const CreateCard = (props) => {
 
   const handleButtonChange = (event) => {
     event.preventDefault();
-    
+
     const newCard = {
-        title: titleInput,
-        description:descripInput,
-        gifURL:GIFInput,
-        boardId:parseInt(props.boardId)
-    }
+      title: titleInput,
+      description: descripInput,
+      gifURL: GIFInput,
+      boardId: parseInt(props.boardId),
+    };
 
     setCard(newCard);
-    
   };
 
   useEffect(() => {
     if (card != null) {
-        console.log(card);
-        handleNewCard();
+      console.log(card);
+      handleNewCard();
     }
-  }, [card])
+  }, [card]);
 
   const handleNewCard = () => {
     fetch("http://localhost:3001/cards/", {
@@ -58,7 +57,7 @@ const CreateCard = (props) => {
         console.error("Error fetching boards:", error);
         // Display an error message or retry the request
       });
-  }
+  };
 
   const searchForGIF = async () => {
     // API
@@ -125,7 +124,10 @@ const CreateCard = (props) => {
             {showGIF &&
               gifData.data.map((object) => {
                 return (
-                  <div className="gif" onClick={() => getGIF(object.images.fixed_height_small.url)}>
+                  <div
+                    className="gif"
+                    onClick={() => getGIF(object.images.fixed_height_small.url)}
+                  >
                     <img
                       src={object.images.fixed_height_small.url}
                       alt={object.alt_text}
