@@ -7,6 +7,7 @@ const CreateCard = (props) => {
   const [searchGIFInput, setSearchGIFInput] = useState("");
   const [GIFInput, setGIFInput] = useState("");
   const [ownerInput, setOwnerInput] = useState("");
+  
 
   const handleButtonChange = () => {};
 

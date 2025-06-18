@@ -12,6 +12,19 @@ router.get("/", async (req, res) => {
   res.json(boards); // return the tasks sent in json format
 });
 
+// GET (but for the cards of a board)
+router.get("/:boardID/cards", async (req, res) => {
+  // if the route is called successfully
+  const boardID = req.params.boardID;
+  const boardWithCards = await prisma.board.findUnique({
+    where: {id : parseInt(boardID)},
+    include: {
+        cards:true
+    }
+  })
+  res.json(boardWithCards.cards); // return the cards of the specific board
+});
+
 // POST
 router.post("/", async (req, res) => {
   // add a board to the board database

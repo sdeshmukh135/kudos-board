@@ -53,7 +53,6 @@ const HomePage = () => {
       {isCreate && (
         <CreateModal
           setIsCreate={setIsCreate}
-          boardData={boardData}
           setBoardData={setBoardData}
         />
       )}

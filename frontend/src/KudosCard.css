@@ -1,0 +1,24 @@
+.kudosCard {
+    transition: transform 0.3s ease-in-out;
+  max-height: auto;
+  max-width: 300px;
+  color: #56261b;
+  margin: 10px;
+}
+
+.kudosPic {
+    max-height: 80%;
+  max-width: 80%;
+  border: 1px solid #b49855;
+  border-radius: 5%;
+}
+
+#changeCard {
+  padding: 8px;
+  border-radius: 4px;
+  background-color: #56261b;
+  margin: 5px;
+}
+
+
+

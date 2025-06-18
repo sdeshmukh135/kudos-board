@@ -20,14 +20,21 @@ const createModal = (props) => {
     
   };
 
-//   useEffect(() => {
-//     if (newBoard != null) {
-//         handleNewBoard();
-//     }
-//   }, [newBoard])
+  useEffect(() => {
+    if (newBoard != null) {
+        handleNewBoard();
+    }
+  }, [newBoard])
 
-  handleNewBoard = () => {
-    fetch("http://localhost:3001/boards")
+  const handleNewBoard = () => {
+    fetch("http://localhost:3001/boards/", {
+        method: 'POST',
+        headers : {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+        },
+        body: JSON.stringify(newBoard)
+    })
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
@@ -38,7 +45,7 @@ const createModal = (props) => {
         // Handle successful response
         console.log("Boards:", data);
         // Update UI or perform other actions with the data
-        setBoardData(data);
+        props.setBoardData(data);
       })
       .catch((error) => {
         // Handle error
