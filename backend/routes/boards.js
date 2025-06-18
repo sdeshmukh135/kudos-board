@@ -60,12 +60,15 @@ router.put("/:id", async (req, res) => {
 router.delete("/:id", async (req, res) => {
   // delete an existing pet
   const id = req.params.id;
-
+  await prisma.card.deleteMany({
+    where: { boardId: parseInt(id) },
+  });
   const deletedBoard = await prisma.board.delete({
     where: { id: parseInt(id) },
   });
 
-  res.json(deletedBoard);
+  const boards = await prisma.board.findMany();
+  res.status(201).json(boards);
 });
 
 module.exports = router;

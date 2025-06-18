@@ -1,9 +1,9 @@
 import "./FilterOptions.css";
 
 const FilterOptions = (props) => {
-  const handleFilterRequest = (type) => {
-    console.log("______");
 
+
+  const handleFilterRequest = (type) => {
     const currentBoardData = [...props.data];
     let newData = null;
     if (type === "All") {
@@ -32,7 +32,7 @@ const FilterOptions = (props) => {
 
     console.log(newData);
 
-    props.setBoardData(newData);
+    props.setFilteredData(newData);
   };
 
   return (

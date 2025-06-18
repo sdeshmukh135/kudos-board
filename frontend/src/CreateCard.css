@@ -47,8 +47,8 @@
 }
 
 .gifoptions {
-    display:flex;
-    margin:10px;
-    padding:10px;
-    flex-wrap:wrap;
+  display: flex;
+  margin: 10px;
+  padding: 10px;
+  flex-wrap: wrap;
 }

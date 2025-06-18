@@ -11,6 +11,7 @@ const BoardList = (props) => {
               id={object.id}
               title={object.title}
               category={object.category}
+              setBoardData={props.setBoardData}
             />
           </>
         );
