@@ -25,8 +25,13 @@ router.post("/", async (req, res) => {
       boardId,
     },
   });
-  const cards = await prisma.card.findMany();
-  res.status(201).json(cards);
+  const boardWithCards = await prisma.board.findUnique({
+    where: { id: parseInt(boardId) },
+    include: {
+      cards: true,
+    },
+  });
+  res.json(boardWithCards.cards); // return the cards of the specific board
 });
 
 // PUT

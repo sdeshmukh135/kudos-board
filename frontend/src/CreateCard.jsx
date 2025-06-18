@@ -9,12 +9,56 @@ const CreateCard = (props) => {
   const [ownerInput, setOwnerInput] = useState("");
   const [gifData, setGifData] = useState(null); // to show the gif options
   const [showGIF, setShowGIF] = useState(false);
+  const [card, setCard] = useState(null);
 
-  const handleButtonChange = () => {};
+  const handleButtonChange = (event) => {
+    event.preventDefault();
+    
+    const newCard = {
+        title: titleInput,
+        description:descripInput,
+        gifURL:GIFInput,
+        boardId:parseInt(props.boardId)
+    }
 
-  //   const isShowGIF = () => {
-  //     setShowGIF(true);
-  //   }
+    setCard(newCard);
+    
+  };
+
+  useEffect(() => {
+    if (card != null) {
+        console.log(card);
+        handleNewCard();
+    }
+  }, [card])
+
+  const handleNewCard = () => {
+    fetch("http://localhost:3001/cards/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(card),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json(); // Parse JSON data from the response
+      })
+      .then((data) => {
+        // Handle successful response
+        console.log("Cards:", data);
+        // Update UI or perform other actions with the data
+        props.setCardData(data);
+      })
+      .catch((error) => {
+        // Handle error
+        console.error("Error fetching boards:", error);
+        // Display an error message or retry the request
+      });
+  }
 
   const searchForGIF = async () => {
     // API
@@ -29,8 +73,9 @@ const CreateCard = (props) => {
     setShowGIF(true);
   };
 
-  const getGIF = () => {
+  const getGIF = (url) => {
     // get url link
+    setGIFInput(url);
   };
 
   const closeModal = () => {
@@ -80,7 +125,7 @@ const CreateCard = (props) => {
             {showGIF &&
               gifData.data.map((object) => {
                 return (
-                  <div className="gif">
+                  <div className="gif" onClick={() => getGIF(object.images.fixed_height_small.url)}>
                     <img
                       src={object.images.fixed_height_small.url}
                       alt={object.alt_text}
@@ -98,7 +143,7 @@ const CreateCard = (props) => {
             name="getGIF"
             placeholder="Enter GIF URL"
           />
-          <button type="button" id="submitBoard" onClick={getGIF}>
+          <button type="button" id="submitBoard">
             Copy GIF URL
           </button>
 

@@ -16,7 +16,7 @@
   padding: 10px;
   border: 1px solid #fdebe9;
   border-radius: 5%;
-  max-width: 80%;
+  max-width: 50%;
   color: #fdebe9;
   font-family: "Courier New", Courier, monospace;
   max-height: 70%;
@@ -44,4 +44,11 @@
   padding: 10px;
   margin: 10px;
   width: 400px;
+}
+
+.gifoptions {
+    display:flex;
+    margin:10px;
+    padding:10px;
+    flex-wrap:wrap;
 }
