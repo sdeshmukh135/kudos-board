@@ -7,8 +7,8 @@
 }
 
 .kudosPic {
-  max-height: 80%;
-  max-width: 80%;
+  max-height: auto;
+  max-width: auto;
   border: 1px solid #b49855;
   border-radius: 5%;
 }
