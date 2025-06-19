@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import "./BoardPage.css";
 import Header from "./Header.jsx";
 import Footer from "./Footer.jsx";
-import { useParams } from "react-router-dom"; // to access the parameters from the link
+import { Link, useParams } from "react-router-dom"; // to access the parameters from the link
 import CreateCard from "./CreateCard.jsx";
 import KudosList from "./KudosList.jsx";
 
@@ -42,6 +42,7 @@ const BoardPage = () => {
 
   return (
     <div className="boardPage">
+      <Link to="/" className="backArrow">⬅</Link>
       <Header />
       <h2 className="title">{title}</h2>
       <button type="button" id="createBoard" onClick={openModal}>
@@ -54,7 +55,7 @@ const BoardPage = () => {
           setCardData={setCardData}
         />
       )}
-      {cardData && <KudosList cardData={cardData} setCardData={setCardData}/>}
+      {cardData && <KudosList cardData={cardData} setCardData={setCardData} />}
       <Footer />
     </div>
   );

@@ -4,4 +4,11 @@
 
 .boardPage {
   font-family: "Courier New", Courier, monospace;
+  min-height: 100vh;
+}
+
+.backArrow {
+    display:flex;
+    color: #56261b;
+    font-size:30px;
 }

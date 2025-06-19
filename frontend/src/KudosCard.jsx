@@ -1,8 +1,42 @@
 import "./KudosCard.css";
+import { useState } from "react";
 
 const KudosCard = (props) => {
-    const handleDelete = () => {
-        fetch(`http://localhost:3001/cards/${props.id}`, {
+  const [upvoteCount, setUpvoteCount] = useState(props.upvotes); // starting amount of upvotes
+
+  const handleUpvote = () => {
+    // PUT request
+    fetch(`http://localhost:3001/cards/${props.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      data: {
+        upvotes: upvoteCount + 1,
+      },
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json(); // Parse JSON data from the response
+      })
+      .then((data) => {
+        // Handle successful response
+        console.log("Boards:", data);
+        // Update UI or perform other actions with the data
+        setUpvoteCount(upvoteCount + 1);
+      })
+      .catch((error) => {
+        // Handle error
+        console.error("Error fetching boards:", error);
+        // Display an error message or retry the request
+      });
+  };
+
+  const handleDelete = () => {
+    fetch(`http://localhost:3001/cards/${props.id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -26,7 +60,7 @@ const KudosCard = (props) => {
         console.error("Error fetching boards:", error);
         // Display an error message or retry the request
       });
-    }
+  };
 
   return (
     <div className="kudosCard">
@@ -34,8 +68,8 @@ const KudosCard = (props) => {
       <h3>{props.description}</h3>
       <img className="kudosPic" src={props.gifURL} alt="GIF" />
       <div className="options">
-        <button type="button" id="changeCard">
-          Upvote
+        <button type="button" id="changeCard" onClick={handleUpvote}>
+          Upvote: {upvoteCount}
         </button>
         <button type="button" id="changeCard" onClick={handleDelete}>
           Delete

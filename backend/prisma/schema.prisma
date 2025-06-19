@@ -25,6 +25,7 @@ model Card {
   title String
   description String
   gifURL String
+  upvotes Int
   boardId Int 
   board Board @relation(fields: [boardId], references: [id]) // connects cards to each board
 }

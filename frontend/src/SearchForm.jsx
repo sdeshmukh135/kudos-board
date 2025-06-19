@@ -1,17 +1,17 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./SearchForm.css";
 
-const SearchForm = () => {
+const SearchForm = (props) => {
   const [searchInput, setSearchInput] = useState("");
 
   const handleSearchChange = (event) => {
     event.preventDefault();
-    //props.onSearchQuery(event.target.elements['search-movie'].value);
+    props.setSearchQuery(searchInput);
   };
 
   const handleClear = () => {
     setSearchInput("");
-    //props.onSearchQuery('');
+    props.setSearchQuery("");
   };
 
   return (

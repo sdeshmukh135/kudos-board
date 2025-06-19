@@ -18,6 +18,7 @@ const CreateCard = (props) => {
       title: titleInput,
       description: descripInput,
       gifURL: GIFInput,
+      upvotes:0,
       boardId: parseInt(props.boardId),
     };
 

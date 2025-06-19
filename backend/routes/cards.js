@@ -14,39 +14,34 @@ router.get("/", async (req, res) => {
 
 // POST
 router.post("/", async (req, res) => {
-  // add a board to the board database
-  const { title, description, gifURL, boardId } = req.body;
+  // add a card to the card database
+  const { title, description, gifURL, boardId, upvotes } = req.body;
 
   const newCard = await prisma.card.create({
     data: {
       title,
       description,
       gifURL,
+      upvotes,
       boardId,
     },
   });
-  const boardWithCards = await prisma.board.findUnique({
-    where: { id: parseInt(boardId) },
-    include: {
-      cards: true,
-    },
+  const cards = await prisma.card.findMany({
+    where: {boardId : boardId}
   });
-  res.json(boardWithCards.cards); // return the cards of the specific board
+  res.status(201).json(cards);
 });
 
 // PUT
 router.put("/:id", async (req, res) => {
-  // make modifications to an existing pet
+  // make modifications to the upvotes
   const id = req.params.id;
 
-  const { title, description, gifURL } = req.body;
+  const { upvotes } = req.body;
   const updatedCard = await prisma.card.update({
     where: { id: parseInt(id) },
     data: {
-      title,
-      description,
-      gifURL,
-      boardId,
+      upvotes,
     },
   });
   res.json(updatedCard);
@@ -54,15 +49,18 @@ router.put("/:id", async (req, res) => {
 
 // DELETE
 router.delete("/:id", async (req, res) => {
-  // delete an existing pet
+  // delete an existing card
   const id = req.params.id;
 
   const deletedCard = await prisma.card.delete({
     where: { id: parseInt(id) },
   });
 
-  const cards = await prisma.card.findMany();
-  res.json(cards);
+  const cards = await prisma.card.findMany({
+    where: {boardId : deletedCard.boardId}
+  });
+  res.status(201).json(cards);
+
 });
 
 module.exports = router;

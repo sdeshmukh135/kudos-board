@@ -1,10 +1,8 @@
 import "./FilterOptions.css";
 
 const FilterOptions = (props) => {
-
-
   const handleFilterRequest = (type) => {
-    const currentBoardData = [...props.data];
+    let currentBoardData = [...props.data];
     let newData = null;
     if (type === "All") {
       props.fetchData();
@@ -15,6 +13,8 @@ const FilterOptions = (props) => {
         props.fetchData();
       } else {
         // sort then filter for the first six (order based on id)
+        currentBoardData.sort((a, b) => b["id"] - a["id"]); // highest ids are "more recent"
+        newData = currentBoardData.slice(0, 6); // for the first six elements
       }
     } else if (type === "Celebration") {
       newData = currentBoardData.filter(function (object) {

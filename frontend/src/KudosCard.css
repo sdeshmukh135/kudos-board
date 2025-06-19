@@ -3,15 +3,21 @@
   max-height: auto;
   max-width: 300px;
   color: #56261b;
+  border: 2px solid #56261b;
   margin: 10px;
 }
 
 .kudosPic {
-  max-height: auto;
-  max-width: auto;
-  border: 1px solid #b49855;
+  max-height: 80%;
+  max-width: 80%;
+  border: 2px solid #56261b;
   border-radius: 5%;
 }
+
+.kudosCard:hover {
+  transform: translateY(-10px);
+}
+
 
 #changeCard {
   padding: 8px;
