@@ -9,7 +9,9 @@ import KudosList from "./KudosList.jsx";
 const BoardPage = () => {
   const { title, id } = useParams();
   const [isCreate, setIsCreate] = useState(false); // but for Kudos Cards instead
+  const [commentId, setCommentId] = useState(0); // zero (as indexing begins at 1), when user wants to comment, this updates to the cardId of the comment
   const [cardData, setCardData] = useState(null);
+  const [popModalData, setPopModalData] = useState(null); // data for the popup modal for the cards
 
   const openModal = () => {
     setIsCreate(true);
@@ -42,7 +44,9 @@ const BoardPage = () => {
 
   return (
     <div className="boardPage">
-      <Link to="/" className="backArrow">⬅</Link>
+      <Link to="/" className="backArrow">
+        ⬅
+      </Link>
       <Header />
       <h2 className="title">{title}</h2>
       <button type="button" id="createBoard" onClick={openModal}>
@@ -55,7 +59,16 @@ const BoardPage = () => {
           setCardData={setCardData}
         />
       )}
-      {cardData && <KudosList cardData={cardData} setCardData={setCardData} />}
+      {cardData && (
+        <KudosList
+          cardData={cardData}
+          setCommentId={setCommentId}
+          commentId={commentId}
+          setCardData={setCardData}
+          popModalData={popModalData}
+          setPopModalData={setPopModalData}
+        />
+      )}
       <Footer />
     </div>
   );
