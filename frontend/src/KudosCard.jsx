@@ -4,7 +4,23 @@ import { useState } from "react";
 const KudosCard = (props) => {
   const [upvoteCount, setUpvoteCount] = useState(props.upvotes); // starting amount of upvotes
 
-  const handleUpvote = () => {
+  const openModal = (event) => {
+    event.stopPropagation();
+    props.setCommentId(props.id); // id of the card
+  };
+
+  const openPopUp = () => {
+    const modalData = {
+      description: props.description,
+      gifURL: props.gifURL,
+      author: props.author,
+      id: parseInt(props.id),
+    };
+    props.setPopModalData(modalData);
+  };
+
+  const handleUpvote = (event) => {
+    event.stopPropagation();
     // PUT request
     fetch(`http://localhost:3001/cards/${props.id}`, {
       method: "PUT",
@@ -35,7 +51,8 @@ const KudosCard = (props) => {
       });
   };
 
-  const handleDelete = () => {
+  const handleDelete = (event) => {
+    event.stopPropagation();
     fetch(`http://localhost:3001/cards/${props.id}`, {
       method: "DELETE",
       headers: {
@@ -63,7 +80,7 @@ const KudosCard = (props) => {
   };
 
   return (
-    <div className="kudosCard">
+    <div className="kudosCard" onClick={openPopUp}>
       <h2>{props.title}</h2>
       <h3>{props.description}</h3>
       <img className="kudosPic" src={props.gifURL} alt="GIF" />
@@ -75,6 +92,9 @@ const KudosCard = (props) => {
           Delete
         </button>
       </div>
+      <button type="button" id="comment" onClick={openModal}>
+        Comment
+      </button>
     </div>
   );
 };

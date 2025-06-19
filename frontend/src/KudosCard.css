@@ -18,10 +18,16 @@
   transform: translateY(-10px);
 }
 
-
 #changeCard {
   padding: 8px;
   border-radius: 4px;
   background-color: #56261b;
   margin: 5px;
+}
+
+#comment {
+  padding: 5px;
+  border-radius: 4px;
+  background-color: #56261b;
+  margin: 8px;
 }

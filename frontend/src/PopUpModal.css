@@ -1,0 +1,31 @@
+.modal-container {
+  display: flex;
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+.createComment-content {
+  background-color: #56261b;
+  margin: 10% auto; /* 15% from the top and centered */
+  padding: 10px;
+  border: 1px solid #fdebe9;
+  border-radius: 5%;
+  max-width: 80%;
+  color: #fdebe9;
+  font-family: "Courier New", Courier, monospace;
+  max-height: 80%;
+  overflow-y: auto;
+}
+
+.comments {
+  border: 1px solid #fdebe9;
+  border-radius: 5%;
+  margin: 10px;
+  padding: 10px;
+}

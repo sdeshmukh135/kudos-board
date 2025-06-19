@@ -18,6 +18,8 @@ app.use(cors()); // enable CORs for all routes
 // establishing routes
 const boardRoutes = require("./routes/boards.js");
 const cardRoutes = require("./routes/cards.js");
+const commentRoutes = require("./routes/comments.js");
 
 app.use("/boards", boardRoutes);
 app.use("/cards", cardRoutes);
+app.use("/comments", commentRoutes);

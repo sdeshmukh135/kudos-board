@@ -25,7 +25,17 @@ model Card {
   title String
   description String
   gifURL String
+  author String
   upvotes Int
+  comments Comment[]
   boardId Int 
   board Board @relation(fields: [boardId], references: [id]) // connects cards to each board
+}
+
+model Comment {
+  id Int @id @default(autoincrement())
+  message String
+  author String
+  cardId Int
+  card Card @relation(fields: [cardId], references: [id])
 }

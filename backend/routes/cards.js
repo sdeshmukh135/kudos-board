@@ -12,10 +12,23 @@ router.get("/", async (req, res) => {
   res.json(cards); // return the tasks sent in json format
 });
 
+// GET the comments of a card
+router.get("/:cardID/comments", async (req, res) => {
+  // if the route is called successfully
+  const cardID = req.params.cardID;
+  const cardsWithComments = await prisma.card.findUnique({
+    where: { id: parseInt(cardID) },
+    include: {
+      comments: true,
+    },
+  });
+  res.json(cardsWithComments.comments); // return the cards of the specific board
+});
+
 // POST
 router.post("/", async (req, res) => {
   // add a card to the card database
-  const { title, description, gifURL, boardId, upvotes } = req.body;
+  const { title, description, gifURL, boardId, upvotes, author } = req.body;
 
   const newCard = await prisma.card.create({
     data: {
@@ -24,10 +37,11 @@ router.post("/", async (req, res) => {
       gifURL,
       upvotes,
       boardId,
+      author,
     },
   });
   const cards = await prisma.card.findMany({
-    where: {boardId : boardId}
+    where: { boardId: boardId },
   });
   res.status(201).json(cards);
 });
@@ -52,15 +66,18 @@ router.delete("/:id", async (req, res) => {
   // delete an existing card
   const id = req.params.id;
 
+  await prisma.comment.deleteMany({
+    where: { cardId: parseInt(id) },
+  });
+
   const deletedCard = await prisma.card.delete({
     where: { id: parseInt(id) },
   });
 
   const cards = await prisma.card.findMany({
-    where: {boardId : deletedCard.boardId}
+    where: { boardId: deletedCard.boardId },
   });
   res.status(201).json(cards);
-
 });
 
 module.exports = router;
