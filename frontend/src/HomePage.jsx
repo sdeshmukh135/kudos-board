@@ -11,6 +11,7 @@ const HomePage = () => {
   const [boardData, setBoardData] = useState(null); // will update everytime a board is added, deleted, etc.-- intialized to the sample data
   const [isCreate, setIsCreate] = useState(false);
   const [filteredData, setFilteredData] = useState(null); // to use if there is filtered data present
+  const [searchQuery, setSearchQuery] = useState("");
 
   const dataToDisplay = filteredData || boardData; // to figure out what data to display
 
@@ -44,10 +45,30 @@ const HomePage = () => {
     console.log(boardData);
   }, []);
 
+  useEffect(() => {
+    if (searchQuery != "") {
+      handleSearch();
+    } else {
+      fetchData();
+    }
+  }, [searchQuery]);
+
+  const handleSearch = () => {
+    // search by title and set
+    let currentBoardData = [...boardData];
+    const newData = currentBoardData.filter(function (object) {
+      return object.title.toLowerCase().includes(searchQuery.toLowerCase());
+    });
+
+    console.log(newData);
+
+    setBoardData(newData);
+  };
+
   return (
     <div className="HomePage">
       <Header />
-      <SearchForm />
+      <SearchForm setSearchQuery={setSearchQuery} />
       <FilterOptions
         data={boardData}
         setFilteredData={setFilteredData}
@@ -62,8 +83,11 @@ const HomePage = () => {
       {/* try to combine */}
       {/* {boardData && !filteredData && <BoardList boardData={boardData} setBoardData={setBoardData}/>}  */}
       {dataToDisplay && (
-  <BoardList boardData={dataToDisplay} setBoardData={filteredData ? setFilteredData : setBoardData} />
-)}
+        <BoardList
+          boardData={dataToDisplay}
+          setBoardData={filteredData ? setFilteredData : setBoardData}
+        />
+      )}
       <Footer />
     </div>
   );

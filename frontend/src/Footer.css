@@ -4,10 +4,9 @@ footer {
   justify-content: flex-end;
   flex-direction: column;
   height: 30px;
+  flex-shrink:0;
   padding: 10px;
-  flex: 1;
-  bottom: 0;
-  margin-top: auto;
+ 
   background-color: #56261b;
   color: #fdebe9;
 }

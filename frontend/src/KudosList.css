@@ -1,8 +1,10 @@
 main {
   display: flex;
-  flex-grow: 1;
+  height:100%;
+
+  flex: 1 0 auto;
   padding: 20px;
-  height: 100%;
-  flex-wrap: wrap;
+  flex-wrap:wrap;
+  margin-top:auto;
   justify-content: center;
 }
