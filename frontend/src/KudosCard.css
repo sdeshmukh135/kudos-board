@@ -23,7 +23,7 @@
   border-radius: 4px;
   background-color: var(--text-color);
   margin: 5px;
-  color:var(--background-color);
+  color: var(--background-color);
 }
 
 #comment {
@@ -31,5 +31,12 @@
   border-radius: 4px;
   background-color: var(--text-color);
   margin: 8px;
-  color:var(--background-color);
+  color: var(--background-color);
 }
+
+.pin {
+  max-height: 8%;
+  max-width: 8%;
+  display:flex;
+}
+

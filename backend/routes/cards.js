@@ -22,13 +22,13 @@ router.get("/:cardID/comments", async (req, res) => {
       comments: true,
     },
   });
-  res.json(cardsWithComments.comments); // return the cards of the specific board
+  res.json(cardsWithComments.comments); // return the comments of a specific card
 });
 
 // POST
 router.post("/", async (req, res) => {
   // add a card to the card database
-  const { title, description, gifURL, boardId, upvotes, author } = req.body;
+  const { title, description, gifURL, boardId, upvotes, isPinned, author } = req.body;
 
   const newCard = await prisma.card.create({
     data: {
@@ -36,6 +36,7 @@ router.post("/", async (req, res) => {
       description,
       gifURL,
       upvotes,
+      isPinned,
       boardId,
       author,
     },
@@ -56,6 +57,21 @@ router.put("/:id", async (req, res) => {
     where: { id: parseInt(id) },
     data: {
       upvotes,
+    },
+  });
+  res.json(updatedCard);
+});
+
+// PUT (but for pinned)
+router.put("/:id", async (req, res) => {
+  // make modifications to the upvotes
+  const id = req.params.id;
+
+  const { isPinned } = req.body;
+  const updatedCard = await prisma.card.update({
+    where: { id: parseInt(id) },
+    data: {
+      isPinned,
     },
   });
   res.json(updatedCard);

@@ -27,6 +27,7 @@ model Card {
   gifURL String
   author String
   upvotes Int
+  isPinned Boolean
   comments Comment[]
   boardId Int 
   board Board @relation(fields: [boardId], references: [id]) // connects cards to each board

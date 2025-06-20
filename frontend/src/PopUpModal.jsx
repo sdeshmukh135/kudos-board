@@ -5,13 +5,9 @@ const PopUpModal = (props) => {
   const isAuthor = props.author !== ""; // if an author has been specified or not
   const [commentsList, setCommentsList] = useState(null); // to find the commments for a card
 
-//   useEffect(() => {
-//     console.log(commentsList);
-//   }, [commentsList]);
 
   useEffect(() => {
     fetchComments();
-    console.log(commentsList);
   }, []);
 
   const fetchComments = () => {
@@ -30,8 +26,8 @@ const PopUpModal = (props) => {
       })
       .catch((error) => {
         // Handle error
-        console.error("Error fetching boards:", error);
-        // Display an error message or retry the request
+        console.error("Error fetching comments:", error);
+        // Display an error message
       });
   };
 

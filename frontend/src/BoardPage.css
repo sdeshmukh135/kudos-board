@@ -14,11 +14,11 @@
 }
 
 .headerOptions {
-    display:flex;
-    justify-content:space-between
+  display: flex;
+  justify-content: space-between;
 }
 
 .lightbulbImage {
-    max-height: 5%;
+  max-height: 5%;
   max-width: 5%;
 }

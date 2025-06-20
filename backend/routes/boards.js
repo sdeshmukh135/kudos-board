@@ -9,7 +9,7 @@ const prisma = new PrismaClient();
 router.get("/", async (req, res) => {
   // if the route is called successfully
   const boards = await prisma.board.findMany();
-  res.json(boards); // return the tasks sent in json format
+  res.json(boards); // return the boards sent in json format
 });
 
 // GET (but for the cards of a board)
@@ -42,7 +42,7 @@ router.post("/", async (req, res) => {
 
 // PUT
 router.put("/:id", async (req, res) => {
-  // make modifications to an existing pet
+  // make modifications to an existing board
   const id = req.params.id;
 
   const { title, category } = req.body;
@@ -58,7 +58,7 @@ router.put("/:id", async (req, res) => {
 
 // DELETE
 router.delete("/:id", async (req, res) => {
-  // delete an existing pet
+  // delete an existing board
   const id = req.params.id;
   await prisma.card.deleteMany({
     where: { boardId: parseInt(id) },

@@ -28,6 +28,7 @@ const KudosList = (props) => {
               author={object.author}
               gifURL={object.gifURL}
               upvotes={object.upvotes}
+              isPinned={object.isPinned}
               setCardData={props.setCardData}
               setCommentId={props.setCommentId}
               setPopModalData={props.setPopModalData}

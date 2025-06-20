@@ -16,7 +16,7 @@ const CommentModal = (props) => {
     };
     console.log(newComment);
     setComment(newComment);
-    
+
     // clear input for the next input
     setMessageInput("");
     setAuthorInput("");
@@ -50,12 +50,11 @@ const CommentModal = (props) => {
       .then((data) => {
         // Handle successful response
         console.log("Comments: ", data);
-        // Update UI or perform other actions with the data
         // DO NOTHING (all we want is for it to enter the database)
       })
       .catch((error) => {
         // Handle error
-        console.error("Error fetching boards:", error);
+        console.error("Error fetching comments:", error);
         // Display an error message or retry the request
       });
   };

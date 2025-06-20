@@ -3,10 +3,10 @@ import { useState, useEffect } from "react";
 
 const createModal = (props) => {
   // for create a board and for creating a kudos card (use state to figure out which on is which)
-  const [titleInput, setTitleInput] = useState(""); // combine? But then the text appears on both input fields
-  const [authorInput, setAuthorInput] = useState(""); // MAKE OPTIONAL
+  const [titleInput, setTitleInput] = useState(""); 
+  const [authorInput, setAuthorInput] = useState(""); 
   const [selectedCategory, setSelectedCategory] = useState(""); // for the category
-  const [newBoard, setNewBoard] = useState(null); // too many useStates?
+  const [newBoard, setNewBoard] = useState(null); 
 
   const handleButtonChange = (event) => {
     event.preventDefault();
@@ -51,12 +51,6 @@ const createModal = (props) => {
         console.error("Error fetching boards:", error);
         // Display an error message or retry the request
       });
-  };
-
-  const handleClear = () => {
-    setTitleInput("");
-    setAuthorInput("");
-    setSelectedCategory("");
   };
 
   const closeModal = () => {

@@ -19,6 +19,7 @@ const CreateCard = (props) => {
       description: descripInput,
       gifURL: GIFInput,
       upvotes: 0,
+      isPinned:false,
       author: ownerInput,
       boardId: parseInt(props.boardId),
     };
@@ -56,8 +57,8 @@ const CreateCard = (props) => {
       })
       .catch((error) => {
         // Handle error
-        console.error("Error fetching boards:", error);
-        // Display an error message or retry the request
+        console.error("Error fetching cards:", error);
+        // Display an error message
       });
   };
 
