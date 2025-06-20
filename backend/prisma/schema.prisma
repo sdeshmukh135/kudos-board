@@ -28,6 +28,7 @@ model Card {
   author String
   upvotes Int
   isPinned Boolean
+  pinnedAt DateTime?
   comments Comment[]
   boardId Int 
   board Board @relation(fields: [boardId], references: [id]) // connects cards to each board
