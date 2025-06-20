@@ -4,7 +4,6 @@ import redPin from "/src/assets/redPin.png";
 import whitePin from "/src/assets/whitePin.png"
 
 const KudosCard = (props) => {
-  const [upvoteCount, setUpvoteCount] = useState(props.upvotes); // starting amount of upvotes
 
 
   const openModal = (event) => {
@@ -67,7 +66,7 @@ const KudosCard = (props) => {
         Accept: "application/json",
       },
       body: JSON.stringify({
-        upvotes: upvoteCount + 1,
+        upvotes: props.upvotes + 1,
       }),
     })
       .then((response) => {
@@ -80,7 +79,7 @@ const KudosCard = (props) => {
         // Handle successful response
         console.log("Cards: ", data);
         // Update UI or perform other actions with the data
-        setUpvoteCount(upvoteCount + 1);
+        props.setCardData(data);
       })
       .catch((error) => {
         // Handle error
@@ -125,7 +124,7 @@ const KudosCard = (props) => {
       <img className="kudosPic" src={props.gifURL} alt="GIF" />
       <div className="options">
         <button type="button" id="changeCard" onClick={handleUpvote}>
-          Upvote: {upvoteCount}
+          Upvote: {props.upvotes}
         </button>
         <button type="button" id="changeCard" onClick={handleDelete}>
           Delete

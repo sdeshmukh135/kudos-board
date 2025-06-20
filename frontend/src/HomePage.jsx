@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import "./HomePage.css";
 import CreateModal from "./CreateModal.jsx";
 import lightbulb from "/src/assets/lightbulb.webp";
+import Banner from './Banner.jsx'
 
 const HomePage = ({ isDark, toggleMode }) => {
   const [boardData, setBoardData] = useState(null); // will update everytime a board is added, deleted, etc.-- intialized to the sample data
@@ -72,6 +73,7 @@ const HomePage = ({ isDark, toggleMode }) => {
         onClick={toggleMode}
       />
       <Header />
+      <Banner />
       <SearchForm setSearchQuery={setSearchQuery} />
       <FilterOptions
         data={boardData}

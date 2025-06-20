@@ -59,7 +59,11 @@ router.put("/:id", async (req, res) => {
       upvotes,
     },
   });
-  res.json(updatedCard);
+
+  const cards = await prisma.card.findMany({
+    where: { boardId: updatedCard.boardId },
+  });
+  res.status(201).json(cards);
 });
 
 // PUT (but for pinned)
