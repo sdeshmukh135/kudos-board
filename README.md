@@ -1,5 +1,3 @@
-📝 `NOTE` Use this template to initialize the contents of a README.md file for your application. As you work on your assignment over the course of the week, update the required or stretch features lists to indicate which features you have completed by changing `[ ]` to `[x]`. (🚫 Remove this paragraph before submitting your assignment.)
-
 ## Unit Assignment: Kudos Board
 
 Submitted by: **Sara Deshmukh**
@@ -135,9 +133,25 @@ Deployed Application (**required**): https://kudos-board-3.onrender.com/
 
 ### Walkthrough Video
 
-`TODO://` Add the embedded URL code to your animated app walkthrough below, `ADD_EMBEDDED_CODE_HERE`. Make sure the video or gif actually renders and animates when viewing this README. Ensure your walkthrough showcases the presence and/or functionality of all features you implemented above (check them off as you film!). Pay attention to any **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS** checkboxes listed above to ensure graders see the full functionality of your website! (🚫 Remove this paragraph after adding walkthrough video)
 
-`ADD_EMBEDDED_CODE_HERE`
+<div>
+    <a href="https://www.loom.com/share/b71eb2bf050b42a1b032c65b616ce39e">
+      <p>Vite + React - 20 June 2025 - Watch Video</p>
+    </a>
+    <a href="https://www.loom.com/share/b71eb2bf050b42a1b032c65b616ce39e">
+      <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/b71eb2bf050b42a1b032c65b616ce39e-715f4e8c0b06e31a-full-play.gif">
+    </a>
+  </div>
+
+  For the adding board and pinning/unpinning features
+  <div>
+    <a href="https://www.loom.com/share/73b85993d8594e5eb78bc85190fe93e3">
+      <p>Vite + React - 20 June 2025 - Watch Video</p>
+    </a>
+    <a href="https://www.loom.com/share/73b85993d8594e5eb78bc85190fe93e3">
+      <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/73b85993d8594e5eb78bc85190fe93e3-35e10ce33e3ad3fb-full-play.gif">
+    </a>
+  </div>
 
 ### Reflection
 
