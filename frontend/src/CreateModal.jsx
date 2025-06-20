@@ -26,7 +26,7 @@ const createModal = (props) => {
   }, [newBoard]);
 
   const handleNewBoard = () => {
-    fetch("http://localhost:3001/boards/", {
+    fetch(`${import.meta.env.VITE_API_URL}/boards/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const BoardCard = (props) => {
   // edit with props for furture additions
   const handleDelete = () => {
-    fetch(`http://localhost:3001/boards/${props.id}`, {
+    fetch(`${import.meta.env.VITE_API_URL}/boards/${props.id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

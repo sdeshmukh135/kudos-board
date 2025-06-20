@@ -35,7 +35,7 @@ const CreateCard = (props) => {
   }, [card]);
 
   const handleNewCard = () => {
-    fetch("http://localhost:3001/cards/", {
+    fetch(`${import.meta.env.VITE_API_URL}/cards/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

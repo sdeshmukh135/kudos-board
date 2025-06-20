@@ -33,7 +33,7 @@ const CommentModal = (props) => {
   }, [comment]);
 
   const handleComment = () => {
-    fetch("http://localhost:3001/comments/", {
+    fetch(`${import.meta.env.VITE_API_URL}/comments/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

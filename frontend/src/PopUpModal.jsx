@@ -11,7 +11,7 @@ const PopUpModal = (props) => {
   }, []);
 
   const fetchComments = () => {
-    fetch(`http://localhost:3001/cards/${props.cardData.id}/comments`)
+    fetch(`${import.meta.env.VITE_API_URL}/cards/${props.cardData.id}/comments`)
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);

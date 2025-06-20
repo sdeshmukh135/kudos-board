@@ -17,7 +17,7 @@ const KudosCard = (props) => {
     event.stopPropagation();
     
     // add change to database
-    fetch(`http://localhost:3001/cards/${props.id}/pin`, {
+    fetch(`${import.meta.env.VITE_API_URL}/cards/${props.id}/pin`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -60,7 +60,7 @@ const KudosCard = (props) => {
   const handleUpvote = (event) => {
     event.stopPropagation();
     // PUT request
-    fetch(`http://localhost:3001/cards/${props.id}`, {
+    fetch(`${import.meta.env.VITE_API_URL}/cards/${props.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -91,7 +91,7 @@ const KudosCard = (props) => {
 
   const handleDelete = (event) => {
     event.stopPropagation();
-    fetch(`http://localhost:3001/cards/${props.id}`, {
+    fetch(`${import.meta.env.VITE_API_URL}/cards/${props.id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

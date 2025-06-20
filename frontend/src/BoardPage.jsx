@@ -19,7 +19,7 @@ const BoardPage = ({ isDark, toggleMode }) => {
   };
 
   const fetchCardData = () => {
-    fetch(`http://localhost:3001/boards/${id}/cards`)
+    fetch(`${import.meta.env.VITE_API_URL}/boards/${id}/cards`)
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);

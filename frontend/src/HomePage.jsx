@@ -21,7 +21,7 @@ const HomePage = ({ isDark, toggleMode }) => {
   };
 
   const fetchData = () => {
-    fetch("http://localhost:3001/boards")
+    fetch(`${import.meta.env.VITE_API_URL}/boards`)
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
