@@ -1,9 +1,7 @@
-import './Banner.css'
+import "./Banner.css";
 
 const Banner = () => {
-    return (
-        <h3 className="banner">Connect with people!</h3>
-    )
-}
+  return <h3 className="banner">Connect with people!</h3>;
+};
 
-export default Banner
+export default Banner;

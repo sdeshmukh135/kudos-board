@@ -5,7 +5,6 @@ const PopUpModal = (props) => {
   const isAuthor = props.author !== ""; // if an author has been specified or not
   const [commentsList, setCommentsList] = useState(null); // to find the commments for a card
 
-
   useEffect(() => {
     fetchComments();
   }, []);

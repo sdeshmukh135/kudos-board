@@ -28,7 +28,8 @@ router.get("/:cardID/comments", async (req, res) => {
 // POST
 router.post("/", async (req, res) => {
   // add a card to the card database
-  const { title, description, gifURL, boardId, upvotes, isPinned, author } = req.body;
+  const { title, description, gifURL, boardId, upvotes, isPinned, author } =
+    req.body;
 
   const newCard = await prisma.card.create({
     data: {
@@ -62,6 +63,7 @@ router.put("/:id", async (req, res) => {
 
   const cards = await prisma.card.findMany({
     where: { boardId: updatedCard.boardId },
+    orderBy: [{ isPinned: "desc" }, { pinnedAt: "desc" }],
   });
   res.status(201).json(cards);
 });
@@ -75,15 +77,13 @@ router.put("/:id/pin", async (req, res) => {
     where: { id: parseInt(id) },
     data: {
       isPinned,
-      pinnedAt: isPinned ? new Date() : null // sets a timestamp when pinned, don't need it if not
+      pinnedAt: isPinned ? new Date() : null, // sets a timestamp when pinned, don't need it if not
     },
   });
   const newOrderCards = await prisma.card.findMany({
-  orderBy: [
-    { isPinned: 'desc' },    
-    { pinnedAt: 'desc' },     
-  ],
-});
+    where: { boardId: updatedCard.boardId },
+    orderBy: [{ isPinned: "desc" }, { pinnedAt: "desc" }],
+  });
   res.json(newOrderCards);
 });
 

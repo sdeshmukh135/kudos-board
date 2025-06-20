@@ -3,10 +3,10 @@ import { useState, useEffect } from "react";
 
 const createModal = (props) => {
   // for create a board and for creating a kudos card (use state to figure out which on is which)
-  const [titleInput, setTitleInput] = useState(""); 
-  const [authorInput, setAuthorInput] = useState(""); 
+  const [titleInput, setTitleInput] = useState("");
+  const [authorInput, setAuthorInput] = useState("");
   const [selectedCategory, setSelectedCategory] = useState(""); // for the category
-  const [newBoard, setNewBoard] = useState(null); 
+  const [newBoard, setNewBoard] = useState(null);
 
   const handleButtonChange = (event) => {
     event.preventDefault();

@@ -30,5 +30,4 @@ router.post("/", async (req, res) => {
   res.status(201).json(comments);
 });
 
-
 module.exports = router;

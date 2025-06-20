@@ -27,7 +27,7 @@ const BoardCard = (props) => {
       .catch((error) => {
         // Handle error
         console.error("Error fetching boards:", error);
-        // Display an error message 
+        // Display an error message
       });
   };
 

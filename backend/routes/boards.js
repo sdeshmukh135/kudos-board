@@ -22,7 +22,7 @@ router.get("/:boardID/cards", async (req, res) => {
       cards: true,
     },
   });
-  
+
   res.json(boardWithCards.cards); // return the cards of the specific board
 });
 

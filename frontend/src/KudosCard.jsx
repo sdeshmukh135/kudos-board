@@ -1,20 +1,17 @@
 import "./KudosCard.css";
 import { useState, useEffect } from "react";
 import redPin from "/src/assets/redPin.png";
-import whitePin from "/src/assets/whitePin.png"
+import whitePin from "/src/assets/whitePin.png";
 
 const KudosCard = (props) => {
-
-
   const openModal = (event) => {
     event.stopPropagation();
     props.setCommentId(props.id); // id of the card
   };
 
-
   const handlePinned = (event) => {
     event.stopPropagation();
-    
+
     // add change to database
     fetch(`${import.meta.env.VITE_API_URL}/cards/${props.id}/pin`, {
       method: "PUT",
@@ -41,10 +38,9 @@ const KudosCard = (props) => {
       .catch((error) => {
         // Handle error
         console.error("Error fetching cards: ", error);
-        // Display an error message 
+        // Display an error message
       });
-
-  }
+  };
 
   const openPopUp = () => {
     const modalData = {
@@ -84,7 +80,7 @@ const KudosCard = (props) => {
       .catch((error) => {
         // Handle error
         console.error("Error fetching cards: ", error);
-        // Display an error message 
+        // Display an error message
       });
   };
 
@@ -118,7 +114,21 @@ const KudosCard = (props) => {
 
   return (
     <div className="kudosCard" onClick={openPopUp}>
-      {props.isPinned ? <img className="pin" src={redPin} alt={"Pinned"} onClick={handlePinned}/>:<img className="pin" src={whitePin} alt={"Not pinned"} onClick={handlePinned}/> }
+      {props.isPinned ? (
+        <img
+          className="pin"
+          src={redPin}
+          alt={"Pinned"}
+          onClick={handlePinned}
+        />
+      ) : (
+        <img
+          className="pin"
+          src={whitePin}
+          alt={"Not pinned"}
+          onClick={handlePinned}
+        />
+      )}
       <h2>{props.title}</h2>
       <h3>{props.description}</h3>
       <img className="kudosPic" src={props.gifURL} alt="GIF" />

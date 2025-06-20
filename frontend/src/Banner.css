@@ -1,8 +1,8 @@
 .banner {
-    border:1px solid black;
-    background-color: var(--text-color);
-    color: var(--background-color);
-    font-family: "Courier New", Courier, monospace;
-    padding:7px;
-    margin-top:0
+  border: 1px solid black;
+  background-color: var(--text-color);
+  color: var(--background-color);
+  font-family: "Courier New", Courier, monospace;
+  padding: 7px;
+  margin-top: 0;
 }

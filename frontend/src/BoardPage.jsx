@@ -35,7 +35,7 @@ const BoardPage = ({ isDark, toggleMode }) => {
       .catch((error) => {
         // Handle error
         console.error("Error fetching cards:", error);
-        // Display an error message 
+        // Display an error message
       });
   };
 
