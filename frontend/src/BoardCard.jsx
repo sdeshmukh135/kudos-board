@@ -20,8 +20,7 @@ const BoardCard = (props) => {
       })
       .then((data) => {
         // Handle successful response
-        console.log("Boards:", data);
-        // Update UI or perform other actions with the data
+
         props.setBoardData(data);
       })
       .catch((error) => {

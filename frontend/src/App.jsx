@@ -12,7 +12,6 @@ function App() {
   }, [isDark]);
 
   const toggleMode = () => {
-    console.log("toggling");
     setIsDark(!isDark);
   };
 

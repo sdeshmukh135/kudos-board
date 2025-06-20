@@ -28,8 +28,6 @@ const BoardPage = ({ isDark, toggleMode }) => {
       })
       .then((data) => {
         // Handle successful response
-        console.log("Cards", data);
-        // Update UI or perform other actions with the data
         setCardData(data);
       })
       .catch((error) => {
@@ -61,7 +59,7 @@ const BoardPage = ({ isDark, toggleMode }) => {
       <Header />
       <h2 className="title">{title}</h2>
       <button type="button" id="createBoard" onClick={openModal}>
-        Create a New Board
+        Create a New Card
       </button>
       {isCreate && (
         <CreateCard

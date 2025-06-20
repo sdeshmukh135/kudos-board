@@ -31,8 +31,6 @@ const HomePage = ({ isDark, toggleMode }) => {
       })
       .then((data) => {
         // Handle successful response
-        console.log("Boards:", data);
-        // Update UI or perform other actions with the data
         setBoardData(data);
       })
       .catch((error) => {

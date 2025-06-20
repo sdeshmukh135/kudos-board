@@ -51,8 +51,6 @@ const CreateCard = (props) => {
       })
       .then((data) => {
         // Handle successful response
-        console.log("Cards:", data);
-        // Update UI or perform other actions with the data
         props.setCardData(data);
       })
       .catch((error) => {
@@ -70,7 +68,6 @@ const CreateCard = (props) => {
     );
     const data = await response.json();
 
-    console.log(data);
     setGifData(data);
     setShowGIF(true);
   };

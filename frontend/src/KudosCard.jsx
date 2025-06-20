@@ -31,8 +31,6 @@ const KudosCard = (props) => {
       })
       .then((data) => {
         // Handle successful response
-        console.log("Cards: ", data);
-        // Update UI or perform other actions with the data
         props.setCardData(data);
       })
       .catch((error) => {
@@ -73,8 +71,6 @@ const KudosCard = (props) => {
       })
       .then((data) => {
         // Handle successful response
-        console.log("Cards: ", data);
-        // Update UI or perform other actions with the data
         props.setCardData(data);
       })
       .catch((error) => {
@@ -101,8 +97,6 @@ const KudosCard = (props) => {
       })
       .then((data) => {
         // Handle successful response
-        console.log("Cards", data);
-        // Update UI or perform other actions with the data
         props.setCardData(data);
       })
       .catch((error) => {

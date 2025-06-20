@@ -2,7 +2,7 @@ import "./CreateModal.css";
 import { useState, useEffect } from "react";
 
 const createModal = (props) => {
-  // for create a board and for creating a kudos card (use state to figure out which on is which)
+  // for create a board 
   const [titleInput, setTitleInput] = useState("");
   const [authorInput, setAuthorInput] = useState("");
   const [selectedCategory, setSelectedCategory] = useState(""); // for the category
@@ -10,7 +10,6 @@ const createModal = (props) => {
 
   const handleButtonChange = (event) => {
     event.preventDefault();
-    console.log(event);
     const board = {
       title: event.target.elements["title"].value,
       category: selectedCategory,
@@ -42,8 +41,6 @@ const createModal = (props) => {
       })
       .then((data) => {
         // Handle successful response
-        console.log("Boards:", data);
-        // Update UI or perform other actions with the data
         props.setBoardData(data);
       })
       .catch((error) => {
@@ -81,7 +78,9 @@ const createModal = (props) => {
             className="createInput"
             required
           >
-            <option value>Select a Category:</option>
+            <option value="" disabled hidden>
+              Select a Category:
+            </option>
             <option value="Celebration">Celebration</option>
             <option value="Thank You">Thank you</option>
             <option value="Inspiration">Inspiration</option>

@@ -14,7 +14,6 @@ const CommentModal = (props) => {
       author: authorInput,
       cardId: parseInt(props.cardId),
     };
-    console.log(newComment);
     setComment(newComment);
 
     // clear input for the next input
@@ -49,7 +48,6 @@ const CommentModal = (props) => {
       })
       .then((data) => {
         // Handle successful response
-        console.log("Comments: ", data);
         // DO NOTHING (all we want is for it to enter the database)
       })
       .catch((error) => {

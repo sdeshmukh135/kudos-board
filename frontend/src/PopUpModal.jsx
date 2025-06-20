@@ -19,8 +19,6 @@ const PopUpModal = (props) => {
       })
       .then((data) => {
         // Handle successful response
-        console.log("Comments:", data);
-        // Update UI or perform other actions with the data
         setCommentsList(data);
       })
       .catch((error) => {

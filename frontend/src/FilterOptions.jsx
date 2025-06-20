@@ -30,8 +30,6 @@ const FilterOptions = (props) => {
       });
     }
 
-    console.log(newData);
-
     props.setFilteredData(newData);
   };
 
