@@ -8,7 +8,7 @@ import "./HomePage.css";
 import CreateModal from "./CreateModal.jsx";
 import lightbulb from "/src/assets/lightbulb.webp";
 
-const HomePage = ({ isDark, toggleMode}) => {
+const HomePage = ({ isDark, toggleMode }) => {
   const [boardData, setBoardData] = useState(null); // will update everytime a board is added, deleted, etc.-- intialized to the sample data
   const [isCreate, setIsCreate] = useState(false);
   const [filteredData, setFilteredData] = useState(null); // to use if there is filtered data present
@@ -37,13 +37,12 @@ const HomePage = ({ isDark, toggleMode}) => {
       .catch((error) => {
         // Handle error
         console.error("Error fetching boards:", error);
-        // Display an error message or retry the request
+        // Display an error message 
       });
   };
 
   useEffect(() => {
     fetchData(); // calls an api
-    console.log(boardData);
   }, []);
 
   useEffect(() => {
@@ -61,14 +60,17 @@ const HomePage = ({ isDark, toggleMode}) => {
       return object.title.toLowerCase().includes(searchQuery.toLowerCase());
     });
 
-    console.log(newData);
-
     setBoardData(newData);
   };
 
   return (
     <div className="HomePage">
-      <img className="lightbulbImage" src={lightbulb} alt="Lightbulb Image" onClick={toggleMode}/>
+      <img
+        className="lightbulbImage"
+        src={lightbulb}
+        alt="Lightbulb Image"
+        onClick={toggleMode}
+      />
       <Header />
       <SearchForm setSearchQuery={setSearchQuery} />
       <FilterOptions
@@ -82,8 +84,6 @@ const HomePage = ({ isDark, toggleMode}) => {
       {isCreate && (
         <CreateModal setIsCreate={setIsCreate} setBoardData={setBoardData} />
       )}
-      {/* try to combine */}
-      {/* {boardData && !filteredData && <BoardList boardData={boardData} setBoardData={setBoardData}/>}  */}
       {dataToDisplay && (
         <BoardList
           boardData={dataToDisplay}

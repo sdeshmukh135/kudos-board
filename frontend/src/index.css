@@ -19,11 +19,11 @@ button:hover {
 }
 
 body.light-mode {
-  --background-color:#fdebe9;
-  --text-color:#56261b;
+  --background-color: #fdebe9;
+  --text-color: #56261b;
 }
 
 body.dark-mode {
-  --background-color:#56261b;
-  --text-color:#fdebe9;
+  --background-color: #56261b;
+  --text-color: #fdebe9;
 }

@@ -7,7 +7,7 @@ import CreateCard from "./CreateCard.jsx";
 import KudosList from "./KudosList.jsx";
 import lightbulb from "/src/assets/lightbulb.webp";
 
-const BoardPage = ({isDark, toggleMode}) => {
+const BoardPage = ({ isDark, toggleMode }) => {
   const { title, id } = useParams();
   const [isCreate, setIsCreate] = useState(false); // but for Kudos Cards instead
   const [commentId, setCommentId] = useState(0); // zero (as indexing begins at 1), when user wants to comment, this updates to the cardId of the comment
@@ -34,8 +34,8 @@ const BoardPage = ({isDark, toggleMode}) => {
       })
       .catch((error) => {
         // Handle error
-        console.error("Error fetching boards:", error);
-        // Display an error message or retry the request
+        console.error("Error fetching cards:", error);
+        // Display an error message 
       });
   };
 
@@ -45,14 +45,19 @@ const BoardPage = ({isDark, toggleMode}) => {
 
   return (
     <div className="boardPage">
-        <div className="headerOptions">
-            <Link to="/" className="backArrow">
-        ⬅
-      </Link>
+      <div className="headerOptions">
+        <Link to="/" className="backArrow">
+          ⬅
+        </Link>
 
-      <img className="lightbulbImage" src={lightbulb} alt="Lightbulb Image" onClick={toggleMode}/>
-        </div>
-      
+        <img
+          className="lightbulbImage"
+          src={lightbulb}
+          alt="Lightbulb Image"
+          onClick={toggleMode}
+        />
+      </div>
+
       <Header />
       <h2 className="title">{title}</h2>
       <button type="button" id="createBoard" onClick={openModal}>

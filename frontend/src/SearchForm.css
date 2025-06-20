@@ -24,6 +24,6 @@
 #submitChange {
   padding: 10px;
   border-radius: 4px;
-  color:var(--background-color);
+  color: var(--background-color);
   background-color: var(--text-color);
 }

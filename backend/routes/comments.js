@@ -9,12 +9,12 @@ const prisma = new PrismaClient();
 router.get("/", async (req, res) => {
   // if the route is called successfully
   const comments = await prisma.card.findMany();
-  res.json(comments); // return the tasks sent in json format
+  res.json(comments); // return the comments sent in json format
 });
 
 // POST (add a comment)
 router.post("/", async (req, res) => {
-  // add a card to the card database
+  // add a comment to the comment database
   const { message, author, cardId } = req.body;
 
   const newCard = await prisma.comment.create({
@@ -30,6 +30,5 @@ router.post("/", async (req, res) => {
   res.status(201).json(comments);
 });
 
-// DELETE (delete a comment)
 
 module.exports = router;
