@@ -6,8 +6,9 @@ import FilterOptions from "./FilterOptions.jsx";
 import { useState, useEffect } from "react";
 import "./HomePage.css";
 import CreateModal from "./CreateModal.jsx";
+import lightbulb from "/src/assets/lightbulb.webp";
 
-const HomePage = () => {
+const HomePage = ({ isDark, toggleMode}) => {
   const [boardData, setBoardData] = useState(null); // will update everytime a board is added, deleted, etc.-- intialized to the sample data
   const [isCreate, setIsCreate] = useState(false);
   const [filteredData, setFilteredData] = useState(null); // to use if there is filtered data present
@@ -67,6 +68,7 @@ const HomePage = () => {
 
   return (
     <div className="HomePage">
+      <img className="lightbulbImage" src={lightbulb} alt="Lightbulb Image" onClick={toggleMode}/>
       <Header />
       <SearchForm setSearchQuery={setSearchQuery} />
       <FilterOptions

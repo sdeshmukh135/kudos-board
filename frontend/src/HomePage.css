@@ -5,6 +5,14 @@
 #createBoard {
   padding: 10px;
   border-radius: 4px;
-  background-color: #56261b;
+  background-color: var(--text-color);
   margin: 8px;
+  color:var(--background-color);
+}
+
+.lightbulbImage {
+     max-height: 5%;
+  max-width: 5%;
+  display:flex;
+
 }

@@ -5,8 +5,9 @@ import Footer from "./Footer.jsx";
 import { Link, useParams } from "react-router-dom"; // to access the parameters from the link
 import CreateCard from "./CreateCard.jsx";
 import KudosList from "./KudosList.jsx";
+import lightbulb from "/src/assets/lightbulb.webp";
 
-const BoardPage = () => {
+const BoardPage = ({isDark, toggleMode}) => {
   const { title, id } = useParams();
   const [isCreate, setIsCreate] = useState(false); // but for Kudos Cards instead
   const [commentId, setCommentId] = useState(0); // zero (as indexing begins at 1), when user wants to comment, this updates to the cardId of the comment
@@ -44,9 +45,14 @@ const BoardPage = () => {
 
   return (
     <div className="boardPage">
-      <Link to="/" className="backArrow">
+        <div className="headerOptions">
+            <Link to="/" className="backArrow">
         ⬅
       </Link>
+
+      <img className="lightbulbImage" src={lightbulb} alt="Lightbulb Image" onClick={toggleMode}/>
+        </div>
+      
       <Header />
       <h2 className="title">{title}</h2>
       <button type="button" id="createBoard" onClick={openModal}>

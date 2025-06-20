@@ -17,3 +17,13 @@ button:hover {
   background-color: #777;
   color: white;
 }
+
+body.light-mode {
+  --background-color:#fdebe9;
+  --text-color:#56261b;
+}
+
+body.dark-mode {
+  --background-color:#56261b;
+  --text-color:#fdebe9;
+}

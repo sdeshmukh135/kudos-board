@@ -16,6 +16,10 @@ const CommentModal = (props) => {
     };
     console.log(newComment);
     setComment(newComment);
+    
+    // clear input for the next input
+    setMessageInput("");
+    setAuthorInput("");
   };
 
   const closeModal = () => {

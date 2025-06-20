@@ -7,6 +7,6 @@ footer {
   flex-shrink: 0;
   padding: 10px;
 
-  background-color: #56261b;
-  color: #fdebe9;
+  background-color: var(--text-color);
+  color: var(--background-color);
 }
