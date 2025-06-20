@@ -1,6 +1,7 @@
 #submitFilter {
   padding: 10px;
   border-radius: 4px;
-  background-color: #56261b;
+  background-color: var(--text-color);
+  color:var(--background-color);
   margin: 8px;
 }

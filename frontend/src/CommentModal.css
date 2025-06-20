@@ -11,13 +11,13 @@
 }
 
 .create-content {
-  background-color: #56261b;
+  background-color: var(--text-color);
   margin: 15% auto; /* 15% from the top and centered */
   padding: 10px;
-  border: 1px solid #fdebe9;
+  border: 1px solid var(--background-color);
   border-radius: 5%;
   max-width: 70%;
-  color: #fdebe9;
+  color: var(--background-color);
   font-family: "Courier New", Courier, monospace;
   max-height: 30%;
   overflow-y: auto;
@@ -49,7 +49,7 @@
 #submitComment {
   padding: 10px;
   border-radius: 4px;
-  background-color: #fdebe9;
-  color: #56261b;
+  background-color: var(--background-color);
+  color: var(--text-color);
   margin: 8px;
 }

@@ -28,9 +28,9 @@ const KudosCard = (props) => {
         "Content-Type": "application/json",
         Accept: "application/json",
       },
-      data: {
+      body: JSON.stringify({
         upvotes: upvoteCount + 1,
-      },
+      }),
     })
       .then((response) => {
         if (!response.ok) {

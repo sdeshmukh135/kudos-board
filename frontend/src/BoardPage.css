@@ -1,5 +1,5 @@
 .title {
-  color: #56261b;
+  color: var(--text-color);
 }
 
 .boardPage {
@@ -9,6 +9,16 @@
 
 .backArrow {
   display: flex;
-  color: #56261b;
+  color: var(--text-color);
   font-size: 30px;
+}
+
+.headerOptions {
+    display:flex;
+    justify-content:space-between
+}
+
+.lightbulbImage {
+    max-height: 5%;
+  max-width: 5%;
 }

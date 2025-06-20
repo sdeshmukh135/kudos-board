@@ -11,13 +11,13 @@
 }
 
 .create-card-container {
-  background-color: #56261b;
+  background-color: var(--text-color);
   margin: 5% auto; /* 15% from the top and centered */
   padding: 10px;
-  border: 1px solid #fdebe9;
+  border: 1px solid var(--background-color);
   border-radius: 5%;
   max-width: 50%;
-  color: #fdebe9;
+  color: var(--text-color);
   font-family: "Courier New", Courier, monospace;
   max-height: 70%;
   overflow-y: auto;
