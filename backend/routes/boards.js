@@ -19,7 +19,12 @@ router.get("/:boardID/cards", async (req, res) => {
   const boardWithCards = await prisma.board.findUnique({
     where: { id: parseInt(boardID) },
     include: {
-      cards: true,
+      cards: {
+        orderBy: [
+        { isPinned: 'desc' },      // pinned first
+        { pinnedAt: 'desc' },      // most recently pinned first
+      ],
+      },
     },
   });
 
