@@ -1,11 +1,10 @@
 import "./KudosCard.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import redPin from "/src/assets/redPin.png";
 import whitePin from "/src/assets/whitePin.png"
 
 const KudosCard = (props) => {
   const [upvoteCount, setUpvoteCount] = useState(props.upvotes); // starting amount of upvotes
-  const [pinned, setPinned] = useState(props.isPinned); // whether or not default is pinned
 
 
   const openModal = (event) => {
@@ -13,18 +12,19 @@ const KudosCard = (props) => {
     props.setCommentId(props.id); // id of the card
   };
 
+
   const handlePinned = (event) => {
     event.stopPropagation();
     
     // add change to database
-    fetch(`http://localhost:3001/cards/${props.id}`, {
+    fetch(`http://localhost:3001/cards/${props.id}/pin`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
       },
       body: JSON.stringify({
-        isPinned: !pinned,
+        isPinned: !props.isPinned,
       }),
     })
       .then((response) => {
@@ -37,7 +37,7 @@ const KudosCard = (props) => {
         // Handle successful response
         console.log("Cards: ", data);
         // Update UI or perform other actions with the data
-        setPinned(!pinned);
+        props.setCardData(data);
       })
       .catch((error) => {
         // Handle error
@@ -119,7 +119,7 @@ const KudosCard = (props) => {
 
   return (
     <div className="kudosCard" onClick={openPopUp}>
-      {pinned ? <img className="pin" src={redPin} alt={"Pinned"} onClick={handlePinned}/>:<img className="pin" src={whitePin} alt={"Not pinned"} onClick={handlePinned}/> }
+      {props.isPinned ? <img className="pin" src={redPin} alt={"Pinned"} onClick={handlePinned}/>:<img className="pin" src={whitePin} alt={"Not pinned"} onClick={handlePinned}/> }
       <h2>{props.title}</h2>
       <h3>{props.description}</h3>
       <img className="kudosPic" src={props.gifURL} alt="GIF" />

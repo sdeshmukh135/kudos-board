@@ -63,18 +63,24 @@ router.put("/:id", async (req, res) => {
 });
 
 // PUT (but for pinned)
-router.put("/:id", async (req, res) => {
+router.put("/:id/pin", async (req, res) => {
   // make modifications to the upvotes
   const id = req.params.id;
-
   const { isPinned } = req.body;
   const updatedCard = await prisma.card.update({
     where: { id: parseInt(id) },
     data: {
       isPinned,
+      pinnedAt: isPinned ? new Date() : null // sets a timestamp when pinned, don't need it if not
     },
   });
-  res.json(updatedCard);
+  const newOrderCards = await prisma.card.findMany({
+  orderBy: [
+    { isPinned: 'desc' },    
+    { pinnedAt: 'desc' },     
+  ],
+});
+  res.json(newOrderCards);
 });
 
 // DELETE
