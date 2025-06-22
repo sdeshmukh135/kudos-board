@@ -1,8 +1,8 @@
-import "./CreateModal.css";
+import "./CreateBoard.css";
 import { useState, useEffect } from "react";
 
-const createModal = (props) => {
-  // for create a board 
+const createBoard = (props) => {
+  // for create a board
   const [titleInput, setTitleInput] = useState("");
   const [authorInput, setAuthorInput] = useState("");
   const [selectedCategory, setSelectedCategory] = useState(""); // for the category
@@ -103,4 +103,4 @@ const createModal = (props) => {
   );
 };
 
-export default createModal;
+export default createBoard;

@@ -5,7 +5,7 @@ import SearchForm from "./SearchForm.jsx";
 import FilterOptions from "./FilterOptions.jsx";
 import { useState, useEffect } from "react";
 import "./HomePage.css";
-import CreateModal from "./CreateModal.jsx";
+import CreateBoard from "./CreateBoard.jsx";
 import lightbulb from "/src/assets/lightbulb.webp";
 import Banner from "./Banner.jsx";
 
@@ -82,7 +82,7 @@ const HomePage = ({ isDark, toggleMode }) => {
         Create a New Board
       </button>
       {isCreate && (
-        <CreateModal setIsCreate={setIsCreate} setBoardData={setBoardData} />
+        <CreateBoard setIsCreate={setIsCreate} setBoardData={setBoardData} />
       )}
       {dataToDisplay && (
         <BoardList
