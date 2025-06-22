@@ -1,5 +1,4 @@
 import Header from "./Header.jsx";
-import Footer from "./Footer.jsx";
 import BoardList from "./BoardList.jsx";
 import SearchForm from "./SearchForm.jsx";
 import FilterOptions from "./FilterOptions.jsx";
@@ -90,7 +89,7 @@ const HomePage = ({ isDark, toggleMode }) => {
           setBoardData={filteredData ? setFilteredData : setBoardData}
         />
       )}
-      <Footer />
+      
     </div>
   );
 };

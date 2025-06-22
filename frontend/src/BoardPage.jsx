@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import "./BoardPage.css";
 import Header from "./Header.jsx";
-import Footer from "./Footer.jsx";
 import { Link, useParams } from "react-router-dom"; // to access the parameters from the link
 import CreateCard from "./CreateCard.jsx";
 import KudosList from "./KudosList.jsx";
@@ -78,7 +77,6 @@ const BoardPage = ({ isDark, toggleMode }) => {
           setPopModalData={setPopModalData}
         />
       )}
-      <Footer />
     </div>
   );
 };
